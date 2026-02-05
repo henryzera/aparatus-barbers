@@ -2,14 +2,29 @@ import Header from "./_components/header";
 import SearchInput from "./_components/search-input";
 import Image from "next/image";
 import bannerImage from "@/public/banner.png";
+import BookingItem from "./_components/booking-item";
 
 export default function Home() {
   return (
     <div>
       <Header />
-      <div className="px-5 space-y-4">
+      <div className="space-y-4 px-5">
         <SearchInput />
-        <Image src={bannerImage} alt="Banner" sizes="100vw" className="h-auto w-full"/>
+        <Image
+          src={bannerImage}
+          alt="Banner"
+          sizes="100vw"
+          className="h-auto w-full"
+        />
+        <h2 className="text-foreground text-xs font-semibold uppercase">
+          Agendamentos
+        </h2>
+        <BookingItem
+          serviceName="Corte de cabelo"
+          barberShopName="Barbearia do João"
+          barberShopImageUrl="https://utfs.io/f/c97a2dc9-cf62-468b-a851-bfd2bdde775f-16p.png"
+          date={new Date()}
+        />
       </div>
     </div>
   );
