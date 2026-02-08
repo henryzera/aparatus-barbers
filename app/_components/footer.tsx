@@ -1,11 +1,11 @@
 export default function Footer() {
   return (
-    <footer className="p-7 bg-muted">
-      <p className="text-foreground text-xs font-semibold">
-        &copy; 2025 Aparatus
+    <footer className="bg-secondary px-7 py-8">
+      <p className="text-xs font-semibold text-foreground">
+        © 2025 Copyright Aparatus
       </p>
-      <p className="text-muted-foreground text-xs">
-        Todos os direitos reservados
+      <p className="mt-1.5 text-xs text-muted-foreground">
+        Todos os direitos reservados.
       </p>
     </footer>
   );
