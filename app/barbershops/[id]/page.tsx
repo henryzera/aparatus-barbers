@@ -37,11 +37,11 @@ const BarbershopPage = async (props: PageProps<"/barbershops/[id]">) => {
           priority
         />
         {/* Botão Voltar */}
-        <div className="absolute left-5 top-6">
+        <div className="absolute top-6 left-5">
           <Button
             asChild
             size="icon"
-            className="rounded-full bg-white text-foreground hover:bg-white/90"
+            className="text-foreground rounded-full bg-white hover:bg-white/90"
           >
             <Link href="/">
               <ChevronLeft className="size-5" />
@@ -51,7 +51,7 @@ const BarbershopPage = async (props: PageProps<"/barbershops/[id]">) => {
       </div>
 
       {/* Container de Conteúdo */}
-      <div className="flex-1 rounded-tl-[24px] rounded-tr-[24px] bg-background">
+      <div className="bg-background flex-1 rounded-tl-[24px] rounded-tr-[24px]">
         {/* Informações da Barbearia */}
         <div className="px-5 pt-6">
           <div className="flex items-start gap-2.5">
@@ -64,10 +64,10 @@ const BarbershopPage = async (props: PageProps<"/barbershops/[id]">) => {
               />
             </div>
             <div className="flex flex-col gap-1">
-              <h1 className="text-xl font-bold text-foreground">
+              <h1 className="text-foreground text-xl font-bold">
                 {barbershop.name}
               </h1>
-              <p className="text-sm text-muted-foreground">
+              <p className="text-muted-foreground text-sm">
                 {barbershop.address}
               </p>
             </div>
@@ -83,7 +83,7 @@ const BarbershopPage = async (props: PageProps<"/barbershops/[id]">) => {
         <PageSection>
           <div className="px-5">
             <PageSectionTitle>Sobre Nós</PageSectionTitle>
-            <p className="mt-3 text-sm text-foreground">
+            <p className="text-foreground mt-3 text-sm">
               {barbershop.description}
             </p>
           </div>
