@@ -1,12 +1,19 @@
+"use client";
+
+import { useState } from "react";
 import Image from "next/image";
-import { BarbershopService } from "../generated/prisma/client";
+import { BarbershopService, Barbershop } from "../generated/prisma/client";
 import { Button } from "./ui/button";
+import { Sheet, SheetContent, SheetTrigger } from "./ui/sheet";
+import BookingSheet from "./booking-sheet";
 
 interface ServiceItemProps {
   service: BarbershopService;
+  barbershop: Barbershop;
 }
 
-const ServiceItem = ({ service }: ServiceItemProps) => {
+const ServiceItem = ({ service, barbershop }: ServiceItemProps) => {
+  const [isSheetOpen, setIsSheetOpen] = useState(false);
   const formattedPrice = (service.priceInCents / 100).toLocaleString("pt-BR", {
     style: "currency",
     currency: "BRL",
@@ -37,12 +44,19 @@ const ServiceItem = ({ service }: ServiceItemProps) => {
           <p className="text-sm font-bold text-card-foreground">
             {formattedPrice}
           </p>
-          <Button
-            size="sm"
-            className="rounded-lg bg-[#26272b] px-4 py-2 text-sm font-bold text-white hover:bg-[#26272b]/90"
-          >
-            Reservar
-          </Button>
+          <Sheet open={isSheetOpen} onOpenChange={setIsSheetOpen}>
+            <SheetTrigger asChild>
+              <Button
+                size="sm"
+                className="rounded-lg bg-[#26272b] px-4 py-2 text-sm font-bold text-white hover:bg-[#26272b]/90"
+              >
+                Reservar
+              </Button>
+            </SheetTrigger>
+            <SheetContent side="right" className="w-[370px] overflow-y-auto p-0">
+              <BookingSheet service={service} barbershop={barbershop} />
+            </SheetContent>
+          </Sheet>
         </div>
       </div>
     </div>
